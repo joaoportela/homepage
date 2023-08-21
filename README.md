@@ -85,12 +85,13 @@ services:
     volumes:
       - /path/to/config:/app/config # Make sure your local config directory exists
       - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
+    restart: unless-stopped
 ```
 
 or docker run:
 
 ```bash
-docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:latest
+docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped ghcr.io/benphelps/homepage:latest
 ```
 
 ### With Node
